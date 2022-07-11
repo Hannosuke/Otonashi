@@ -2,3 +2,8 @@
 <%= @task.description %>
 <%= @task.created_at %>
 <%= @task.updated_at %>
+
+<div>
+  <%= link_to "一覧に戻る", tasks_path %>
+  <%= button_to "削除", @task, method: :delete, form: { data: { turbo_confirm: "タスクを削除します。よろしいですか？" } } %>
+</div>
