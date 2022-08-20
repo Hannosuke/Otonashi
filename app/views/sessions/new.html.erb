@@ -1,0 +1,5 @@
+<%= form_with scope: :session, local: true do |f| %>
+  <%= f.text_field :email, required: true, placeholder: "メールアドレス" %>
+  <%= f.password_field :password, required: true, placeholder: "パスワード" %>
+  <%= f.submit "ログイン"  %>
+<% end %>
