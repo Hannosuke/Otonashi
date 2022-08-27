@@ -1,6 +1,9 @@
 <h1>Tasks#index</h1>
 <ul>
   <% @tasks.each do |task| %>
-    <li><%= task.description %></li>
+    <li>
+      <%= task.description %>
+      <%= button_to "done", task_completions_path(task) %>
+    </li>
   <% end %>
 </ul>
