@@ -6,4 +6,12 @@ class User < ApplicationRecord
   def complete(task)
     completions.create!(task: task)
   end
+
+  def make_wip(task)
+    completions.find_by(task: task).destroy!
+  end
+
+  def done?(task)
+    completions.find_by(task: task).present?
+  end
 end
