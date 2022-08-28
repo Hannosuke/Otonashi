@@ -17,6 +17,7 @@ gem "rspec-rails", "~> 4.0.2"
 gem "factory_bot_rails", "~> 6.2.0"
 gem "bcrypt", "~> 3.1.13"
 gem "pry-rails"
+gem "bootstrap", "~> 5.0.0"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
