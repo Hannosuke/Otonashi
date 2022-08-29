@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: "tasks#index"
   resources :tasks, only: %i(index new create show destroy edit update) do
-    resources :completions, only: %i(create)
+    resource :completions, only: %i(create destroy)
   end
 
   get "/login", to: "sessions#new"
