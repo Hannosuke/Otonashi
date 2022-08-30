@@ -3,3 +3,5 @@
   <%= f.password_field :password, required: true, placeholder: "パスワード" %>
   <%= f.submit "ログイン"  %>
 <% end %>
+
+<%= button_to "Googleでログイン", "/auth/google_oauth2", method: :post, data: { turbo: false } %>
