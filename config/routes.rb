@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
 
   namespace :auth do
-    get "auth/:provider/callback", to: "google#create"
+    get "/google_oauth2/callback", to: "google#create"
   end
 end
