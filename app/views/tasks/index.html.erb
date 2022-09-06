@@ -2,7 +2,7 @@
 <ul>
   <% @tasks.each do |task| %>
     <li>
-      <%= task.description %>
+      <%= link_to task.description, task_path(task)  %>
       <% if current_user.done?(task) %>
         <%= link_to "not yet", task_completions_path(task), data: { turbo_method: :delete } %>
       <% else %>
