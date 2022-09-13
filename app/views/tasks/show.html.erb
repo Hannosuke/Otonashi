@@ -4,6 +4,19 @@
 <%= @task.updated_at %>
 
 <div>
+  <table>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= user.task_status(@task) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div>
   <%= link_to "一覧に戻る", tasks_path %>
   <%= link_to "編集", edit_task_path %>
   <%= button_to "削除", @task, method: :delete, form: { data: { turbo_confirm: "タスクを削除します。よろしいですか？" } } %>
