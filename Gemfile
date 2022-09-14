@@ -19,6 +19,7 @@ gem "bcrypt", "~> 3.1.13"
 gem "pry-rails"
 gem "bootstrap", "~> 5.0.0"
 gem "active_decorator"
+gem "slack-notifier"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

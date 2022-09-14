@@ -21,3 +21,5 @@
   <%= link_to "編集", edit_task_path %>
   <%= button_to "削除", @task, method: :delete, form: { data: { turbo_confirm: "タスクを削除します。よろしいですか？" } } %>
 </div>
+
+<%= button_to "リマインドする", task_notifications_path(@task) %>
