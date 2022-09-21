@@ -1,6 +1,2 @@
 <h1>Tasks#new</h1>
-<%= form_with(model: @task, url: tasks_path) do |f| %>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-  <%= f.submit %>
-<% end %>
+<%= render "form", task: @task %>
