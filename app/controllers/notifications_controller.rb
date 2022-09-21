@@ -10,7 +10,10 @@ class NotificationsController < ApplicationController
       channel: SLACK_CHANNEL
     )
 
-    notifier.ping("『#{task.description}』の締切が迫っています！対応よろしくお願いします。")
+    notifier.post(
+      text: "『#{task.description}』の締切が迫っています！対応よろしくお願いします。",
+      at: User.not_completed_task.pluck(:slack_member_id)
+    )
 
     redirect_to task_path(task), notice: "リマインドが完了しました。"
   end

@@ -3,6 +3,8 @@ class User < ApplicationRecord
 
   has_many :completions, dependent: :destroy
 
+  scope :not_completed_task, ->{ User.left_joins(:completions).where(completions: {task_id: nil}) }
+
   def complete(task)
     completions.create!(task: task)
   end
