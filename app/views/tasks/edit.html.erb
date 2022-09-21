@@ -1,6 +1,2 @@
 <h1>Tasks#edit</h1>
-<%= form_with(model: @task, method: :PUT) do |f| %>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-  <%= f.submit %>
-<% end %>
+<%= render "form", task: @task %>
