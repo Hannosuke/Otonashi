@@ -20,6 +20,7 @@ gem "pry-rails"
 gem "bootstrap", "~> 5.0.0"
 gem "active_decorator"
 gem "slack-notifier"
+gem "kaminari", "~> 1.2.2"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
