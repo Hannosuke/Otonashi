@@ -2,7 +2,10 @@ class TasksController < ApplicationController
   before_action :set_task, only: %i(show destroy edit update)
 
   def index
-    @tasks = Task.page(params[:page])
+    @search = Task.ransack(params[:q])
+    @search.sorts = 'created_at desc' if @search.sorts.empty?
+
+    @tasks = @search.result.page(params[:page])
   end
 
   def new
