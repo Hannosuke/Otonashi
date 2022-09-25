@@ -1,6 +1,23 @@
 ---
 ja:
   activerecord:
+    models:
+      task: タスク
+      user: ユーザー
+    attributes:
+      task:
+        id: ID
+        description: 説明
+        due_on: 期限
+        created_at: 登録日時
+        updated_at: 更新日時
+      user:
+        name: 名前
+        email: メールアドレス
+        admin: 管理者権限
+        password: パスワード
+        password_confirmation: パスワード（確認）
+        slack_member_id: SlackメンバーID
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
