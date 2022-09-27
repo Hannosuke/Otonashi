@@ -1,6 +1,6 @@
 <% if page.current? %>
-  <li class="page-item active">
-    <%= content_tag :a, page, data: { remote: remote }, rel: page.rel, class: 'page-link' %>
+  <li class="page-item">
+    <%= content_tag :a, page, data: { remote: remote }, rel: page.rel, class: 'page-link link-light', style: "background: black" %>
   </li>
 <% else %>
   <li class="page-item">
