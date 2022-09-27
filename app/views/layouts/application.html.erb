@@ -11,15 +11,21 @@
   </head>
 
   <body>
-    <% if current_user %>
-      <%= link_to "ログアウト", logout_path, data: { turbo_method: :delete } %>
-      <%= link_to "新規作成", new_task_path %>
-    <% end %>
-    <div>
-      <% flash.each do |key, value| %>
-        <%= content_tag(:div, value, class: "key")%>
-      <% end %>
+    <div  class="vh-100">
+      <div class="row">
+        <div class="ps-0" style="width: 300px;"></div>
+        <div class="ps-0 position-fixed" style="width: 300px;">
+          <%= render "layouts/sidebar" %>
+        </div>
+        <div class="col my-5 mx-5 px-5">
+          <div>
+            <% flash.each do |key, value| %>
+              <%= content_tag(:div, value, class: "key")%>
+            <% end %>
+          </div>
+          <%= yield %>
+        </div>
+      </div>
     </div>
-    <%= yield %>
   </body>
 </html>
