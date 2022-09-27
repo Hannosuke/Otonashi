@@ -22,6 +22,7 @@ gem "active_decorator"
 gem "slack-notifier"
 gem "kaminari", "~> 1.2.2"
 gem "ransack", "~> 3.2.1"
+gem "cssbundling-rails", "~> 1.1.1"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
