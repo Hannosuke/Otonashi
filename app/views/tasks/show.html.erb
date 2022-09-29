@@ -1,25 +1,31 @@
-<h1>Tasks#show</h1>
-<%= @task.description %>
-<%= @task.created_at %>
-<%= @task.updated_at %>
-
 <div>
-  <table>
-    <tbody>
-      <% @users.each do |user| %>
-        <tr>
-          <td><%= user.name %></td>
-          <td><%= user.task_status(@task) %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <%= link_to "←", tasks_path, style: "text-decoration: none" %>
 </div>
-
-<div>
-  <%= link_to "一覧に戻る", tasks_path %>
-  <%= link_to "編集", edit_task_path %>
-  <%= button_to "削除", @task, method: :delete, form: { data: { turbo_confirm: "タスクを削除します。よろしいですか？" } } %>
+<div class="card shadow mt-3">
+  <p class="px-4 pt-5 pb-4 m-0"><%= @task.description %></p>
+  <div class="px-4 pb-5 row m-0">
+    <div class="col-4 offset-8">
+      <div class="d-flex justify-content-end">
+        <%= link_to "編集", edit_task_path, class:"btn btn-outline-secondary me-2" %>
+        <%= button_to "削除", @task, method: :delete, form: { data: { turbo_confirm: "タスクを削除します。よろしいですか？" } }, class:"btn btn-outline-secondary" %>
+      </div>
+    </div>
+  </div>
 </div>
-
-<%= button_to "リマインドする", task_notifications_path(@task) %>
+<div class="mt-4 d-flex justify-content-end">
+  <%= link_to "リマインド", task_notifications_path(@task), class:"btn btn-outline-dark" %>
+</div>
+<div class="card shadow mt-4">
+  <% @users.each do |user| %>
+    <div class="row py-2 px-4 border-top m-0">
+      <div class="col-10 position-relative d-flex align-items-center">
+        <p class="py-3"><%= user.name %></p>
+      </div>
+      <div class="col-2 d-flex align-items-center">
+        <div class="d-flex justify-content-center">
+          <%= user.task_status(@task) %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
