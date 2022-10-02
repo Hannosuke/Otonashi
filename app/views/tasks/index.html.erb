@@ -1,22 +1,24 @@
-<div class="mb-5">
-  <%= search_form_for @search do |f| %>
-    <div class="row g3 mb-3">
-      <div class="col-5">
-        <%= f.search_field :description_cont, class: "form-control" %>
+<div class="my-5">
+  <div class="mb-5">
+    <%= search_form_for @search do |f| %>
+      <div class="row g3 mb-3">
+        <div class="col-5">
+          <%= f.search_field :description_cont, class: "form-control" %>
+        </div>
+        <div class="col-4 d-flex align-items-center">
+          <%= f.submit nil, class: "btn btn-secondary me-1" %>
+          <%= link_to "リセット", tasks_path, class: "btn btn-outline-secondary" %>
+        </div>
       </div>
-      <div class="col-4 d-flex align-items-center">
-        <%= f.submit nil, class: "btn btn-secondary me-1" %>
-        <%= link_to "リセット", tasks_path, class: "btn btn-outline-secondary" %>
-      </div>
+    <% end %>
+  </div>
+
+  <div class="card shadow mt-3">
+
+    <%= render @tasks %>
+
+    <div class="d-flex justify-content-center mt-3">
+      <%= paginate @tasks %>
     </div>
-  <% end %>
-</div>
-
-<div class="card shadow mt-3">
-
-  <%= render @tasks %>
-
-  <div class="d-flex justify-content-center mt-3">
-    <%= paginate @tasks %>
   </div>
 </div>
