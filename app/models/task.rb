@@ -3,4 +3,5 @@ class Task < ApplicationRecord
   validates :due_on, presence: true
 
   has_many :completions, dependent: :destroy
+  belongs_to :user
 end
