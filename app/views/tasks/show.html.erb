@@ -3,7 +3,10 @@
     <%= link_to "←", tasks_path, style: "text-decoration: none" %>
   </div>
   <div class="card shadow mt-3">
-    <p class="px-4 py-1 m-0 border-bottom"><%= l(@task.due_on, format: :default) %>&nbsp;〆</p>
+    <div class="px-4 py-1 m-0 border-bottom row justify-content-between">
+      <p class="m-0 col-5"><%= l(@task.due_on, format: :default) %>&nbsp;〆</p>
+      <p class="m-0 col-7 text-end">created by <%= @task.user.name %></p>
+    </div>
     <p class="px-4 pt-4 pb-4 m-0"><%= @task.description %></p>
     <div class="px-4 pb-4 row m-0">
       <div class="col-4 offset-8">
