@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: %i(show destroy edit update)
+  before_action :set_task, only: %i(show destroy)
 
   def index
     @search = Task.ransack(params[:q])
@@ -27,9 +27,12 @@ class TasksController < ApplicationController
   end
 
   def edit
+    @task = current_user.tasks.find(params[:id])
   end
 
   def update
+    @task = current_user.tasks.find(params[:id])
+
     if @task.update(task_params)
       redirect_to tasks_path
     else
