@@ -14,13 +14,11 @@
   </div>
 
   <div class="card shadow mt-3">
-    <%= turbo_frame_tag "tasks-list" do %>
 
-      <%= render @tasks %>
+    <%= render @tasks %>
 
-      <div class="d-flex justify-content-center mt-3">
-        <%= paginate @tasks %>
-      </div>
-    <% end %>
+    <div class="d-flex justify-content-center mt-3">
+      <%= paginate @tasks %>
+    </div>
   </div>
 </div>
