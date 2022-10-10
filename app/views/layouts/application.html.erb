@@ -19,12 +19,13 @@
             <%= render "layouts/sidebar" %>
           </div>
         <% end %>
-        <div class="col mx-auto px-5" style="max-width: 960px">
-          <div>
-            <% flash.each do |key, value| %>
-              <%= content_tag(:div, value, class: "key")%>
-            <% end %>
-          </div>
+        <div class="col my-4 mx-auto px-5" style="max-width: 960px">
+          <% if notice %>
+            <div class="alert alert-primary alert-dismissible">
+              <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+              <%= notice %>
+            </div>
+          <% end %>
           <%= yield %>
         </div>
       </div>
