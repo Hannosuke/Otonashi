@@ -4,7 +4,7 @@
   </div>
   <div class="card shadow mt-3">
     <div class="px-4 py-1 m-0 border-bottom row justify-content-between">
-      <p class="m-0 col-5"><%= l(@task.due_on, format: :default) %>&nbsp;〆</p>
+      <p class="p-0 m-0 col-5"><%= l(@task.due_on, format: :default) %>&nbsp;〆</p>
       <p class="m-0 col-7 text-end">created by <%= @task.user.name %></p>
     </div>
     <p class="px-4 pt-4 pb-4 m-0"><%= @task.description %></p>
@@ -18,7 +18,7 @@
     </div>
   </div>
   <div class="mt-4 d-flex justify-content-end">
-    <%= link_to "リマインド", task_notifications_path(@task), class:"btn btn-outline-dark" %>
+    <%= link_to "リマインド", task_notifications_path(@task), data: { turbo_method: :post }, class:"btn btn-outline-dark" %>
   </div>
   <div class="card shadow mt-4">
     <% @users.each do |user| %>
