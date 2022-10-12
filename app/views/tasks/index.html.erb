@@ -1,13 +1,16 @@
 <div class="my-5">
   <div class="mb-5">
     <%= search_form_for @search do |f| %>
-      <div class="row g3 mb-3">
+      <div class="row g3 mb-3 mx-0">
         <div class="col-5">
           <%= f.search_field :description_cont, class: "form-control" %>
         </div>
-        <div class="col-4 d-flex align-items-center">
+        <div class="col-3 d-flex align-items-center">
           <%= f.submit nil, class: "btn btn-secondary me-1" %>
           <%= link_to "リセット", tasks_path, class: "btn btn-outline-secondary" %>
+        </div>
+        <div class="col-4 d-grid">
+          <%= link_to "NEW", new_task_path, class: "btn btn-outline-secondary" %>
         </div>
       </div>
     <% end %>
