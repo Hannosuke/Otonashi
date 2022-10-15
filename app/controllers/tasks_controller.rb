@@ -16,6 +16,7 @@ class TasksController < ApplicationController
     @task = current_user.tasks.new(task_params)
 
     if @task.save
+      @task.reserve_notification
       redirect_to tasks_path
     else
       render :new, status: :unprocessable_entity
