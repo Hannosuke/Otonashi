@@ -10,9 +10,11 @@ class NotificationsController < ApplicationController
       channel: SLACK_CHANNEL
     )
 
+    notify_users = User.all.select {|user| !user.done?(task)}
+
     notifier.post(
       text: "『#{task.description}』の締切が迫っています！対応よろしくお願いします。",
-      at: User.not_completed_task.pluck(:slack_member_id)
+      at: notify_users.pluck(:slack_member_id)
     )
 
     redirect_to task_path(task), notice: "リマインドが完了しました。"
