@@ -17,6 +17,7 @@ class TasksController < ApplicationController
 
     if @task.save
       @task.reserve_notification
+      flash.now.notice = "タスクを保存しました。"
     else
       render :new, status: :unprocessable_entity
     end

@@ -20,12 +20,9 @@
           </div>
         <% end %>
         <div class="col my-4 mx-auto px-5" style="max-width: 980px">
-          <% flash.each do |key, value| %>
-            <div class="alert <%= key == 'notice' ? 'alert-primary' : 'alert-danger' %> alert-dismissible">
-              <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-              <%= content_tag(:div, value, class: "key")%>
-            </div>
-          <% end %>
+          <div id="flash">
+            <%= render "layouts/flash" %>
+          </div>
           <%= yield %>
         </div>
       </div>
