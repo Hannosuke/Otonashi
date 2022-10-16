@@ -35,7 +35,7 @@ class TasksController < ApplicationController
     @task = current_user.tasks.find(params[:id])
 
     if @task.update(task_params)
-      redirect_to tasks_path
+      flash.now.notice = "タスクを更新しました。"
     else
       render :edit, status: :unprocessable_entity
     end

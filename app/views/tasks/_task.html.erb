@@ -10,7 +10,7 @@
       <% if current_user.done?(task) %>
         <%= link_to "done", task_completions_path(task), data: { turbo_method: :delete }, class: "btn btn-dark" %>
       <% else %>
-        <%= link_to "done", task_completions_path(task), data: { turbo_method: :post }, class: "btn btn-outline-secondary"  %>
+        <%= link_to "done", task_completions_path(task), data: { turbo_method: :post }, class: "btn btn-outline-secondary" %>
       <% end %>
     </div>
     <% if task.user_id == current_user.id %>
