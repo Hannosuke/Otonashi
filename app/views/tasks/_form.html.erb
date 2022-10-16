@@ -1,6 +1,6 @@
 <%= turbo_frame_tag task do %>
   <%= form_with(model: task) do |f| %>
-  <div class="row py-2 px-4 border-top m-0">
+    <div class="row py-2 px-4 border-top m-0">
       <% if task.errors.any? %>
         <div style="color: red">
           <ul style="list-style: none;">
@@ -11,7 +11,7 @@
         </div>
       <% end %>
 
-      <div class="col-3 d-flex align-items-center">
+      <div class="col-2 d-flex align-items-center p-0">
         <%= f.date_field :due_on, class: "form-control" %>
       </div>
       <div class="col-8 position-relative">
@@ -19,8 +19,14 @@
       </div>
       <div class="col-1 d-flex align-items-center">
         <div class="d-flex justify-content-center">
-        <%= f.submit nil, class: "btn btn-outline-dark" %>
+          <%= f.submit nil, class: "btn btn-outline-dark" %>
+        </div>
       </div>
-  </div>
+      <div class="col-1 d-flex align-items-center justify-content-end">
+        <div class="d-flex justify-content-end">
+          <%= link_to "back", tasks_path, class: "link-secondary", style: "text-decoration: none" %>
+        </div>
+      </div>
+    </div>
   <% end %>
 <% end %>
