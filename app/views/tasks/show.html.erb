@@ -1,39 +1,41 @@
-<div class="my-5">
-  <div>
-    <%= link_to "←", tasks_path, style: "text-decoration: none" %>
-  </div>
-  <div class="card shadow mt-3">
-    <div class="px-4 py-1 m-0 border-bottom row justify-content-between">
-      <p class="p-0 m-0 col-5"><%= l(@task.due_on, format: :default) %>&nbsp;〆</p>
-      <p class="m-0 col-7 text-end">created by <%= @task.user.name %></p>
+<%= turbo_frame_tag @task do %>
+  <div class="my-5">
+    <div>
+      <%= link_to "←", tasks_path, style: "text-decoration: none" %>
     </div>
-    <p class="px-4 pt-4 pb-4 m-0"><%= @task.description %></p>
-    <div class="px-4 pb-4 row m-0">
-      <div class="col-4 offset-8">
-        <div class="d-flex justify-content-end">
-          <% if @task.user_id == current_user.id %>
-            <%= link_to "編集", edit_task_path, class:"btn btn-outline-secondary me-2" %>
-          <% end %>
-          <%= button_to "削除", @task, method: :delete, form: { data: { turbo_confirm: "タスクを削除します。よろしいですか？" } }, class:"btn btn-outline-secondary" %>
-        </div>
+    <div class="card shadow mt-3">
+      <div class="px-4 py-1 m-0 border-bottom row justify-content-between">
+        <p class="p-0 m-0 col-5"><%= l(@task.due_on, format: :default) %>&nbsp;〆</p>
+        <p class="m-0 col-7 text-end">created by <%= @task.user.name %></p>
       </div>
-    </div>
-  </div>
-  <div class="mt-4 d-flex justify-content-end">
-    <%= link_to "リマインド", task_notifications_path(@task), data: { turbo_method: :post }, class:"btn btn-outline-dark" %>
-  </div>
-  <div class="card shadow mt-4">
-    <% @users.each do |user| %>
-      <div class="row py-2 px-4 border-top m-0">
-        <div class="col-10 position-relative d-flex align-items-center">
-          <p class="py-3 m-0"><%= user.name %></p>
-        </div>
-        <div class="col-2 d-flex align-items-center">
-          <div class="d-flex justify-content-center">
-            <%= user.task_status(@task) %>
+      <p class="px-4 pt-4 pb-4 m-0"><%= @task.description %></p>
+      <div class="px-4 pb-4 row m-0">
+        <div class="col-4 offset-8">
+          <div class="d-flex justify-content-end">
+            <% if @task.user_id == current_user.id %>
+              <%= link_to "編集", edit_task_path, class:"btn btn-outline-secondary me-2" %>
+            <% end %>
+            <%= button_to "削除", @task, method: :delete, form: { data: { turbo_confirm: "タスクを削除します。よろしいですか？" } }, class:"btn btn-outline-secondary" %>
           </div>
         </div>
       </div>
-    <% end %>
+    </div>
+    <div class="mt-4 d-flex justify-content-end">
+      <%= link_to "リマインド", task_notifications_path(@task), data: { turbo_method: :post }, class:"btn btn-outline-dark" %>
+    </div>
+    <div class="card shadow mt-4">
+      <% @users.each do |user| %>
+        <div class="row py-2 px-4 border-top m-0">
+          <div class="col-10 position-relative d-flex align-items-center">
+            <p class="py-3 m-0"><%= user.name %></p>
+          </div>
+          <div class="col-2 d-flex align-items-center">
+            <div class="d-flex justify-content-center">
+              <%= user.task_status(@task) %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
-</div>
+<% end %>
