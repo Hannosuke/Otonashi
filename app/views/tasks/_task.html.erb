@@ -7,11 +7,7 @@
       <%= link_to task.description, task_path(task), class: "link-dark stretched-link py-3", style: "text-decoration: none", data: { turbo: false } %>
     </div>
     <div class="col-1 d-flex align-items-center justify-content-center">
-      <% if current_user.done?(task) %>
-        <%= link_to "done", task_completions_path(task), data: { turbo_method: :delete }, class: "btn btn-dark" %>
-      <% else %>
-        <%= link_to "done", task_completions_path(task), data: { turbo_method: :post }, class: "btn btn-outline-secondary" %>
-      <% end %>
+      <%= render partial: "tasks/completion", locals: { task: task } %>
     </div>
     <% if task.user_id == current_user.id %>
       <div class="col-1 d-flex align-items-center justify-content-center">
