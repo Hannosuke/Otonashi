@@ -1,5 +1,5 @@
 class Task < ApplicationRecord
-  validates :description, presence: true
+  validates :description, presence: true, length: { maximum: 4000 }
   validates :due_on, presence: true
 
   has_many :completions, dependent: :destroy
