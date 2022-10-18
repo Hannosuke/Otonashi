@@ -20,11 +20,10 @@
     <%= turbo_frame_tag "tasks-list" do %>
       <%= turbo_frame_tag "new_task" %>
       <div id="tasks">
-      <%= render @tasks %>
-      </div>
-
-      <div class="d-flex justify-content-center mt-3">
-        <%= paginate @tasks %>
+        <%= turbo_frame_tag "tasks-page-#{@tasks.current_page}" do %>
+          <%= render @tasks %>
+          <%= turbo_frame_tag "tasks-page-#{@tasks.next_page}", loading: :lazy, src: path_to_next_page(@tasks) %>
+        <% end %>
       </div>
     </div>
   <% end %>
