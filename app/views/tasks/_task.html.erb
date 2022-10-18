@@ -7,7 +7,9 @@
       </div>
     </div>
     <div class="px-5 py-4 m-0 position-relative">
-      <%= link_to task.description, task_path(task), class: "link-dark stretched-link py-3", style: "text-decoration: none" %>
+      <%= link_to task_path(task), class: "link-dark stretched-link py-3", style: "text-decoration: none" do %>
+        <p class="m-0"><%= safe_join(task.description.split("\n"),tag(:br)) %></p>
+      <% end %>
     </div>
     <div class="px-5 py-4 m-0 d-flex justify-content-end">
       <p class="m-0 col-7 text-end text-muted">created by <%= task.user.name %></p>

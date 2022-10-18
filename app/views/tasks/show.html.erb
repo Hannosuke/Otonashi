@@ -7,7 +7,7 @@
           <%= render partial: "tasks/completion", locals: { task: @task } %>
         </div>
       </div>
-      <p class="px-5 pt-4 pb-4 m-0"><%= @task.description %></p>
+      <p class="px-5 pt-4 pb-4 m-0"><%= safe_join(@task.description.split("\n"),tag(:br)) %></p>
       <div class="px-5 py-4 m-0 d-flex justify-content-end">
         <p class="m-0 col-7 text-end text-muted">created by <%= @task.user.name %></p>
       </div>
