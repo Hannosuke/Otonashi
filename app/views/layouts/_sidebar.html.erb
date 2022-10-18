@@ -1,6 +1,3 @@
 <div class="vh-100 pt-5 px-5">
   <h1 class="fw-bold"><%= link_to "Otonashi", root_path, class:"link-dark", style: "text-decoration: none" %></h1>
-  <% if current_user %>
-    <p><%= link_to "ログアウト", logout_path, data: { turbo_method: :delete } %></p>
-  <% end %>
 </div>
