@@ -18,8 +18,12 @@
         <div class="col-6 p-0">
           <div class="d-flex justify-content-end">
             <% if @task.user_id == current_user.id %>
-              <%= link_to "編集", edit_task_path, class:"btn btn-outline-secondary btn-sm me-2" %>
-              <%= button_to "削除", @task, method: :delete, form: { data: { turbo_confirm: "タスクを削除します。よろしいですか？" } }, class:"btn btn-outline-secondary btn-sm me-2" %>
+              <P class="m-0 d-flex align-items-center me-2">
+                <%= link_to "編集", edit_task_path, class:"link-secondary me-2", style: "text-decoration: none" %>
+              </p>
+              <P class="m-0 d-flex align-items-center me-3">
+                <%= link_to "削除", @task, data: { turbo_method: :delete, turbo_confirm: "タスクを削除します。よろしいですか？" }, class:"link-danger me-2", style: "text-decoration: none" %>
+              </p>
             <% end %>
             <%= link_to "リマインド", task_notifications_path(@task), data: { turbo_method: :post }, class:"btn btn-light btn-sm" %>
           </div>
