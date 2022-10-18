@@ -15,4 +15,8 @@ module ApplicationHelper
 
     return text
   end
+
+  def login_page?
+    request.path.include?('login')
+  end
 end

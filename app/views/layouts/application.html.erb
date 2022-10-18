@@ -13,13 +13,16 @@
   <body>
     <div  class="vh-100">
       <div class="row">
-        <% unless request.path.include?('login') %>
+        <% unless login_page? %>
           <div class="p-0" style="width: 320px;"></div>
           <div class="p-0 position-fixed" style="width: 320px;">
             <%= render "layouts/sidebar" %>
           </div>
         <% end %>
         <div class="col my-4 mx-auto px-5" style="max-width: 980px">
+          <% unless login_page? %>
+            <%= render "layouts/header" %>
+          <% end %>
           <%= yield %>
         </div>
       </div>
