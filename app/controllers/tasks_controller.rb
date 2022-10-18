@@ -15,8 +15,7 @@ class TasksController < ApplicationController
   def create
     @task = current_user.tasks.new(task_params)
 
-    if @task.save
-      @task.reserve_notification
+    if @task.inform
       flash.now.notice = "タスクを保存しました。"
     else
       render :new, status: :unprocessable_entity

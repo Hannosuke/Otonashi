@@ -9,4 +9,27 @@ class Task < ApplicationRecord
   def reserve_notification
     create_notification_reservation!(reservation_date: due_on - 1.day)
   end
+
+  def inform
+    if save
+      begin
+        reserve_notification
+
+        notifier = Slack::Notifier.new(
+          Rails.application.credentials.slack.webhook_url,
+          channel: 'timeline-handa'
+        )
+
+        notifier.ping(
+          description
+        )
+      rescue => e
+        # NOTE: 実際に運用する際にはエラートラッキングツール等へ送る
+      end
+
+      true
+    else
+      false
+    end
+  end
 end
