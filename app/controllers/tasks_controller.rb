@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: %i(show destroy)
+  before_action :set_current_users_task, only: %i(edit update destroy)
 
   def index
     @search = Task.ransack(params[:q])
@@ -24,16 +24,14 @@ class TasksController < ApplicationController
   end
 
   def show
+    @task = Task.find(params[:id])
     @users = User.all
   end
 
   def edit
-    @task = current_user.tasks.find(params[:id])
   end
 
   def update
-    @task = current_user.tasks.find(params[:id])
-
     if @task.update(task_params)
       flash.now.notice = "タスクを更新しました。"
     else
@@ -48,8 +46,8 @@ class TasksController < ApplicationController
 
   private
 
-  def set_task
-    @task = Task.find(params[:id])
+  def set_current_users_task
+    @task = current_user.tasks.find(params[:id])
   end
 
   def task_params
