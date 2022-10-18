@@ -8,7 +8,7 @@
     </div>
     <div class="px-5 py-4 m-0 position-relative">
       <%= link_to task_path(task), class: "link-dark stretched-link py-3", style: "text-decoration: none" do %>
-        <p class="m-0"><%= safe_join(task.description.split("\n"),tag(:br)) %></p>
+        <p class="m-0"><%= text_url_to_link(safe_join((h(task.description)).split("\n"),tag(:br))).html_safe %></p>
       <% end %>
     </div>
     <div class="px-5 py-4 m-0 d-flex justify-content-end">
