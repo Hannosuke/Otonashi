@@ -25,7 +25,7 @@
                 <%= link_to "削除", @task, data: { turbo_method: :delete, turbo_confirm: "タスクを削除します。よろしいですか？" }, class:"link-danger me-2", style: "text-decoration: none" %>
               </p>
             <% end %>
-            <%= link_to "リマインド", task_notifications_path(@task), data: { turbo_method: :post }, class:"btn btn-light btn-sm" %>
+            <%= link_to "リマインド", task_notifications_path(@task), data: { turbo_method: :post, turbo_confirm: "リマインドを実行します。" }, class:"btn btn-light btn-sm" %>
           </div>
         </div>
       </div>
