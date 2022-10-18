@@ -41,7 +41,7 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
-    redirect_to tasks_path
+    flash.now.notice = "タスクを削除しました。"
   end
 
   private
