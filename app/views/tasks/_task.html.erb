@@ -1,13 +1,16 @@
 <%= turbo_frame_tag task do %>
-  <div class="row py-2 px-4 border-top m-0">
-    <div class="col-2 d-flex align-items-center">
-      <%= l(task.due_on, format: :short) %>〆
+  <div class="border-top border-bottom">
+    <div class="px-5 py-4 m-0 row justify-content-between">
+      <p class="p-0 m-0 col-5 fw-bold"><%= l(task.due_on, format: :short) %>&nbsp;〆</p>
+      <div class="col-3 p-0">
+        <%= render partial: "tasks/completion", locals: { task: task } %>
+      </div>
     </div>
-    <div class="col-9 position-relative d-flex align-items-center">
+    <div class="px-5 py-4 m-0 position-relative">
       <%= link_to task.description, task_path(task), class: "link-dark stretched-link py-3", style: "text-decoration: none" %>
     </div>
-    <div class="col-1 d-flex align-items-center justify-content-center">
-      <%= render partial: "tasks/completion", locals: { task: task } %>
+    <div class="px-5 py-4 m-0 d-flex justify-content-end">
+      <p class="m-0 col-7 text-end text-muted">created by <%= task.user.name %></p>
     </div>
   </div>
 <% end %>
