@@ -1,6 +1,8 @@
 <% flash.each do |key, value| %>
-  <div class="alert <%= key == 'notice' ? 'alert-primary' : 'alert-danger' %> alert-dismissible">
-    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-    <%= content_tag(:div, value, class: "key")%>
+  <div class="p-2 mb-2 toast hide text-white bg-info row" data-controller="toast">
+    <div class="toast-body col-10"><%= content_tag(:div, value, class: "key")%></div>
+    <div class="toast-header bg-info col-2">
+      <button class="btn-close btn-close-white" data-bs-dismiss="toast">
+    </div>
   </div>
 <% end %>
