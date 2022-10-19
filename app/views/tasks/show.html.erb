@@ -1,6 +1,6 @@
 <%= turbo_frame_tag @task do %>
-  <div>
-    <div class="border-top">
+  <div class="border-bottom">
+    <div>
       <div class="px-5 py-4 m-0 row justify-content-between">
         <p class="p-0 m-0 col-5 fw-bold"><%= l(@task.due_on, format: :short) %>&nbsp;〆</p>
         <div class="col-3 p-0">
