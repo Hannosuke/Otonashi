@@ -20,9 +20,13 @@ class Task < ApplicationRecord
           channel: 'timeline-handa'
         )
 
-        notifier.ping(
-          description
-        )
+        text = <<~EOS
+          #{description}
+
+          <a href="#{Settings.base_url}/tasks/#{id}">Otonashi で見る</a> 💁🏼‍♀️
+        EOS
+
+        notifier.ping(text)
       rescue => e
         # NOTE: 実際に運用する際にはエラートラッキングツール等へ送る
       end
