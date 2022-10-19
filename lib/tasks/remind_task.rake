@@ -24,12 +24,21 @@ namespace :remind do
         channel: "timeline-handa"
       )
 
+      text = <<~EOS
+        期限が明日に迫っているタスクがあります、ご対応よろしくお願いします！！
+
+        『#{task.description}』
+
+        <a href="#{Settings.base_url}/tasks/#{task.id}">Otonashi で見る</a> 💁🏼‍♀️
+      EOS
+
       notifier.post(
-        text: "『#{task.description}』の期限が明日に迫っています！対応よろしくお願いします。",
+        text: text,
         at: notify_users.pluck(:slack_member_id)
       )
 
-      puts "\n== リマインドが完了しました。 =="
     end
+
+    puts "\n== リマインドが完了しました。 =="
   end
 end

@@ -24,6 +24,7 @@ gem "kaminari", "~> 1.2.2"
 gem "ransack", "~> 3.2.1"
 gem "cssbundling-rails", "~> 1.1.1"
 gem "bootstrap_form", "~> 5.0"
+gem "config"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
