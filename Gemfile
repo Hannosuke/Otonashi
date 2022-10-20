@@ -25,6 +25,7 @@ gem "ransack", "~> 3.2.1"
 gem "cssbundling-rails", "~> 1.1.1"
 gem "bootstrap_form", "~> 5.0"
 gem "config"
+gem "faker", "~> 2.23.0"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
