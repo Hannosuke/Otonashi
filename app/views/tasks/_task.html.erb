@@ -1,7 +1,7 @@
 <%= turbo_frame_tag task do %>
-  <div class="border-bottom">
+  <div class="border-bottom border-1">
     <div class="px-5 py-4 m-0 row justify-content-between">
-      <p class="p-0 m-0 col-5 fw-bold"><%= l(task.due_on, format: :short) %>&nbsp;〆</p>
+      <p class="p-0 m-0 col-5 fw-bold d-flex align-items-center"><%= l(task.due_on, format: :short) %>&nbsp;〆</p>
       <div class="col-3 p-0">
         <%= render partial: "tasks/completion", locals: { task: task } %>
       </div>
@@ -12,7 +12,7 @@
       <% end %>
     </div>
     <div class="px-5 py-4 m-0 d-flex justify-content-end">
-      <p class="m-0 col-7 text-end text-muted">created by <%= task.user.name %></p>
+      <p class="m-0 col-7 text-end text-black-50">created by <%= task.user.name %></p>
     </div>
   </div>
 <% end %>
