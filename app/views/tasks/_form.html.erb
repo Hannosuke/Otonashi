@@ -1,19 +1,21 @@
 <%= turbo_frame_tag task do %>
-  <%= bootstrap_form_with(model: task) do |f| %>
-    <div class="px-5 pt-4 m-0 row">
-      <div class="col-3 p-0">
-        <%= f.date_field :due_on %>
+  <div class="border-bottom border-1">
+    <%= bootstrap_form_with(model: task) do |f| %>
+      <div class="px-5 pt-4 m-0 row">
+        <div class="col-3 p-0">
+          <%= f.date_field :due_on, class:"border-dark" %>
+        </div>
       </div>
-    </div>
-    <div class="px-5 pt-2 pb-4 m-0">
-      <%= f.text_area :description, skip_label: true, wrapper: false, rows: 7 %>
-    </div>
-    <div class="px-5 pt-2 pb-5 m-0 row justify-content-between">
-      <P class="col-6 m-0 d-flex align-items-center">
-        <%= link_to "Back", tasks_path, class: "link-secondary", style: "text-decoration: none" %>
-      </P>
-      <div class="col-3 text-end p-0 d-grid">
-        <%= f.submit 'Save', class: "btn btn-dark" %>
+      <div class="px-5 pt-2 pb-4 m-0">
+        <%= f.text_area :description, skip_label: true, wrapper: false, rows: 7, class:"border-dark" %>
+      </div>
+      <div class="px-5 pt-2 pb-4 m-0 row justify-content-between">
+        <P class="col-6 m-0 d-flex align-items-center">
+          <%= link_to "Back", tasks_path, class: "link-secondary", style: "text-decoration: none" %>
+        </P>
+        <div class="col-3 text-end p-0 d-grid">
+          <%= f.submit 'Save', class: "btn btn-dark" %>
+        </div>
       </div>
     </div>
   <% end %>
