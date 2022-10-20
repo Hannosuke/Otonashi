@@ -12,7 +12,8 @@
       <% end %>
     </div>
     <div class="px-5 py-4 m-0 d-flex justify-content-end">
-      <p class="m-0 col-7 text-end text-black-50">created by <%= task.user.name %></p>
+      <p class="m-0 text-end text-black-50 me-3"><%= l(task.created_at, format: :long) %></p>
+      <p class="m-0 text-end text-black-50">created by <%= task.user.name %></p>
     </div>
   </div>
 <% end %>
